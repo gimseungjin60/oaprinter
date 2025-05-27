@@ -23,3 +23,8 @@ ul.absolute {
 html {
     font-size: 18px; /* 기본값은 16px → 크게 조정 */
 }
+img.product-image {
+  max-width: 100%;
+  height: auto;
+  display: block; /* 여백 제거용 */
+}
