@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설치 사례 상세보기</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <!-- 헤더 -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-blue-600">렌탈 서비스</a>
+      <nav>
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 mx-2">홈</a>
+        <a href="installation.html" class="text-gray-700 hover:text-blue-600 mx-2">설치사례</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 본문 -->
+  <main class="max-w-4xl mx-auto py-16 px-6 bg-white shadow rounded mt-10">
+    <div id="post-content">
+      <!-- 자바스크립트로 채워짐 -->
+    </div>
+    <div class="mt-8">
+      <a href="installation.html" class="text-blue-600 hover:underline">&larr; 설치 사례 목록으로 돌아가기</a>
+    </div>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="bg-gray-800 text-white py-8 mt-20">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm space-y-2">
+      <p>(주) 미래OA하이테크 | 대표: 김성식</p>
+      <p>사업자등록번호: 123-45-67890 | 대표번호: 010-3794-8363</p>
+      <p>주소: 경기도 시흥시 조남동 719-1</p>
+      <p class="text-gray-400 text-xs">Copyright © 2025 미래OA하이테크. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    const data = [
+      { id: 1, img: 'images/install1.jpg', location: '고양시 일산동구', title: '무역회사 렌탈 설치', description: '고양시 일산동구에 위치한 무역회사에 복합기를 설치하였습니다. 고객 맞춤형 제품 선정과 빠른 설치로 만족도를 높였습니다.' },
+      { id: 2, img: 'images/install2.jpg', location: '시흥 정왕동', title: '유통상가가 렌탈 설치', description: '시흥 정왕동 유통상가에서 효율적인 업무를 위해 프린터 렌탈을 선택하셨습니다. 공간에 딱 맞는 장비 제공.' },
+      { id: 3, img: 'images/install3.jpg', location: '인천 계양구', title: '국어학원 렌탈 설치', description: '학원 운영에 필요한 문서 출력과 스캔 기능을 갖춘 복합기 설치 사례입니다. 실용성과 경제성 모두 만족.' },
+      { id: 4, img: 'images/install4.jpg', location: '서울시 서초구', title: '영어학원 렌탈 설치', description: '서울 서초구 영어학원에 최적화된 렌탈 시스템 도입. 고해상도 인쇄와 유지보수 포함.' },
+      { id: 5, img: 'images/install5.jpg', location: '부산 해운대구', title: '병원 렌탈 설치', description: '환자 기록 출력 및 스캔을 위한 복합기 렌탈로 효율적인 병원 운영 지원.' },
+      { id: 6, img: 'images/install6.jpg', location: '대전 유성구', title: '카페 렌탈 설치', description: '카페 운영에 필요한 POS 연동 출력 시스템 구축 사례.' },
+      { id: 7, img: 'images/install7.jpg', location: '수원 영통구', title: '미용실 렌탈 설치', description: '고객 관리 및 예약 출력 시스템 적용.' },
+      { id: 8, img: 'images/install8.jpg', location: '광주 북구', title: 'PC방 렌탈 설치', description: '고객 영수증 및 출력 서비스 용도의 복합기 렌탈 설치.' }
+    ];
+
+    const selected = data.find(item => item.id === id);
+    const post = document.getElementById("post-content");
+
+    if (selected) {
+      post.innerHTML = `
+        <img src="${selected.img}" alt="${selected.location} 설치 이미지" class="w-full h-64 object-cover rounded mb-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">${selected.title}</h1>
+        <p class="text-red-500 font-medium mb-4">📍 ${selected.location}</p>
+        <p class="text-gray-700 leading-relaxed">${selected.description}</p>
+      `;
+    } else {
+      post.innerHTML = `
+        <h1 class="text-2xl font-bold text-gray-800">설치 사례를 찾을 수 없습니다.</h1>
+        <p class="text-gray-600 mt-2">잘못된 주소이거나 존재하지 않는 사례입니다.</p>
+      `;
+    }
+  </script>
+</body>
+</html>

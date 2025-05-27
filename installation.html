@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>설치사례 | 렌탈 설치</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- 헤더 -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold text-blue-600">렌탈 서비스</a>
+      <nav>
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 mx-2">홈</a>
+        <a href="installation.html" class="text-gray-700 hover:text-blue-600 mx-2">설치사례</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section id="installations" class="py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">설치 사례</h2>
+
+        <!-- 그리드 컨테이너 -->
+        <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+        <!-- 페이지 네비게이션 -->
+        <div class="mt-10 flex justify-center space-x-2">
+          <a href="installation.html?page=1" class="px-3 py-1 border border-gray-300 bg-white rounded hover:bg-gray-100">1</a>
+          <a href="installation.html?page=2" class="px-3 py-1 border border-gray-300 bg-white rounded hover:bg-gray-100">2</a>
+          <a href="installation.html?page=3" class="px-3 py-1 border border-gray-300 bg-white rounded hover:bg-gray-100">3</a>
+          <span class="px-3 py-1">...</span>
+          <a href="installation.html?page=10" class="px-3 py-1 border border-gray-300 bg-white rounded hover:bg-gray-100">&raquo;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 카드 렌더링 스크립트 -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const page = parseInt(params.get("page")) || 1;
+    const itemsPerPage = 4;
+
+    const data = [
+      { id: 1, img: 'images/install1.jpg', location: '고양시 일산동구', title: '무역회사 렌탈 설치' },
+      { id: 2, img: 'images/install2.jpg', location: '시흥 정왕동', title: '유통상가가 렌탈 설치' },
+      { id: 3, img: 'images/install3.jpg', location: '인천 계양구', title: '국어학원 렌탈 설치' },
+      { id: 4, img: 'images/install4.jpg', location: '서울시 서초구', title: '영어학원 렌탈 설치' },
+      { id: 5, img: 'images/install5.jpg', location: '부산 해운대구', title: '병원 렌탈 설치' },
+      { id: 6, img: 'images/install6.jpg', location: '대전 유성구', title: '카페 렌탈 설치' },
+      { id: 7, img: 'images/install7.jpg', location: '수원 영통구', title: '미용실 렌탈 설치' },
+      { id: 8, img: 'images/install8.jpg', location: '광주 북구', title: 'PC방 렌탈 설치' }
+    ];
+
+    const container = document.getElementById('card-container');
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentItems = data.slice(start, end);
+
+    currentItems.forEach(item => {
+      const card = document.createElement('a');
+      card.href = `installation-detail.html?id=${item.id}`;
+      card.className = 'bg-white rounded-lg shadow hover:shadow-lg transition block overflow-hidden';
+      card.innerHTML = `
+        <img src="${item.img}" alt="${item.location} 설치사례" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <p class="text-sm text-red-500 font-medium mb-1 flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 0C4.477 0 0 4.477 0 10c0 5.523 10 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 14a4 4 0 110-8 4 4 0 010 8z"/></svg>
+            ${item.location}
+          </p>
+          <h3 class="text-lg font-semibold text-gray-800">${item.title}</h3>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+  <!-- 푸터 -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm space-y-2">
+      <p>(주) 미래OA하이테크 | 대표: 김성식</p>
+      <p>사업자등록번호: 123-45-67890 | 대표번호: 010-3794-8363</p>
+      <p>주소: 경기도 시흥시 조남동 719-1</p>
+      <p class="text-gray-400 text-xs">Copyright © 2025 미래OA하이테크. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

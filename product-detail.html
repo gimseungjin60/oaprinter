@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -209,3 +210,216 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>상품 상세 - 미래OA하이테크</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9fafb;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      margin-right: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .tag-color { background-color: #22c55e; }    /* green-500 */
+    .tag-purple { background-color: #7c3aed; }  /* purple-700 */
+    .tag-pink { background-color: #db2777; }    /* pink-600 */
+    .tag-blue { background-color: #3b82f6; }    /* blue-500 */
+  </style>
+</head>
+<body>
+
+  <main class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <button id="backBtn" class="mb-6 text-blue-600 hover:underline">&larr; 목록으로 돌아가기</button>
+
+    <section id="product-detail" class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      <div class="w-full max-w-md mx-auto">
+        <img id="productImage" src="" alt="상품 이미지" class="product-image" />
+      </div>
+      <div>
+        <h1 id="productTitle" class="text-3xl font-bold mb-4 text-gray-800"></h1>
+        <div id="productTags" class="mb-4 flex flex-wrap"></div>
+        <p id="productModel" class="text-gray-600 mb-2"></p>
+        <p id="productSpeed" class="text-gray-600 mb-4"></p>
+        <p id="productPrice" class="text-2xl font-extrabold text-red-600"></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const products = {
+      best1: {
+        title: "신도리코 컬러 레이저 복합기 D470",
+        image: "images/bw-printer.jpg",
+        tags: ["컬러", "추천", "BEST", "NEW"],
+        model: "모델명 : D470",
+        speed: "속도 25매 / 해상도 1200dpi",
+        price: "80,000원"
+      },
+      best2: {
+        title: "신도리코 컬러 레이저 복합기 D450",
+        image: "images/bw-printer1.jpg",
+        tags: ["컬러", "추천", "HOT"],
+        model: "모델명 : D450",
+        speed: "속도 25매 / 해상도 1200dpi",
+        price: "70,000원"
+      },
+      best3: {
+        title: "신도리코 컬러 레이저 복합기 D320",
+        image: "images/bw-printer2.jpg",
+        tags: ["컬러", "BEST", "HOT"],
+        model: "모델명 : D320",
+        speed: "속도 22매 / 해상도 1200dpi",
+        price: "60,000원"
+      },
+      best4: {
+        title: "신도리코 컬러 레이저 복합기 D420",
+        image: "images/bw-printer3.jpg",
+        tags: ["컬러", "특가"],
+        model: "모델명 : D420",
+        speed: "속도 25매 / 해상도 1200dpi",
+        price: "60,000원"
+      },
+      color1: {
+        title: "컬러 복합기 A",
+        image: "images/color-printer.jpg",
+        tags: ["컬러"],
+        model: "",
+        speed: "",
+        price: "월 50,000원"
+      },
+      color2: {
+        title: "컬러 복합기 B",
+        image: "images/color-printer.jpg",
+        tags: ["컬러"],
+        model: "",
+        speed: "",
+        price: "월 60,000원"
+      },
+      color3: {
+        title: "컬러 복합기 C",
+        image: "images/color-printer.jpg",
+        tags: ["컬러"],
+        model: "",
+        speed: "",
+        price: "월 55,000원"
+      },
+      color4: {
+        title: "컬러 복합기 D",
+        image: "images/color-printer.jpg",
+        tags: ["컬러"],
+        model: "",
+        speed: "",
+        price: "월 58,000원"
+      },
+      bw1: {
+        title: "흑백 복합기 A",
+        image: "images/bw-printer.jpg",
+        tags: ["흑백"],
+        model: "",
+        speed: "",
+        price: "월 30,000원"
+      },
+      bw2: {
+        title: "흑백 복합기 B",
+        image: "images/bw-printer.jpg",
+        tags: ["흑백"],
+        model: "",
+        speed: "",
+        price: "월 35,000원"
+      },
+      bw3: {
+        title: "흑백 복합기 C",
+        image: "images/bw-printer.jpg",
+        tags: ["흑백"],
+        model: "",
+        speed: "",
+        price: "월 32,000원"
+      },
+      bw4: {
+        title: "흑백 복합기 D",
+        image: "images/bw-printer.jpg",
+        tags: ["흑백"],
+        model: "",
+        speed: "",
+        price: "월 33,000원"
+      }
+    };
+
+    const tagColors = {
+      "컬러": "tag-color",
+      "추천": "tag-purple",
+      "BEST": "tag-blue",
+      "NEW": "tag-pink",
+      "HOT": "tag-pink",
+      "특가": "tag-blue",
+      "흑백": "tag-blue"
+    };
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function showProductDetail(id) {
+      const product = products[id];
+      if (!product) {
+        alert("존재하지 않는 상품입니다.");
+        window.location.href = "index.html";
+        return;
+      }
+
+      document.getElementById("productTitle").textContent = product.title;
+      document.getElementById("productImage").src = product.image;
+      document.getElementById("productImage").alt = product.title;
+
+      const tagsContainer = document.getElementById("productTags");
+      tagsContainer.innerHTML = "";
+      product.tags.forEach(tag => {
+        const span = document.createElement("span");
+        span.textContent = tag;
+        span.className = "tag " + (tagColors[tag] || "tag-blue");
+        tagsContainer.appendChild(span);
+      });
+
+      document.getElementById("productModel").textContent = product.model;
+      document.getElementById("productSpeed").textContent = product.speed;
+      document.getElementById("productPrice").textContent = product.price;
+    }
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+
+    const productId = getQueryParam("id");
+    showProductDetail(productId);
+  </script>
+
+</body>
+</html>
+>>>>>>> c1e4a81c9a0fe37b98fe51239b1a0795d5082c4f

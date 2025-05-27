@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이벤트 | 미래OA하이테크</title>
+  <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- (기존) Fixed Sidebar & Banner 삽입 -->
+
+  <!-- 헤더 -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <!-- (기존 헤더 코드) -->
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-center mb-8">이벤트</h1>
+
+    <!-- 탭 -->
+    <nav class="flex justify-center space-x-8 mb-8 text-lg font-medium">
+      <button class="tab-btn text-blue-600 border-b-2 border-blue-600 pb-2" data-tab="all">전체(<span id="count-all">4</span>)</button>
+      <button class="tab-btn text-gray-500 hover:text-blue-600 pb-2" data-tab="ongoing">진행중 이벤트(<span id="count-ongoing">0</span>)</button>
+      <button class="tab-btn text-gray-500 hover:text-blue-600 pb-2" data-tab="ended">종료된 이벤트(<span id="count-ended">4</span>)</button>
+    </nav>
+
+    <!-- 카드 컨테이너 -->
+    <div id="cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- data-status="ongoing" 또는 "ended" -->
+      <a href="event-detail.html?id=1" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event1.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-white text-gray-600 text-sm px-2 py-1 rounded">캠페인</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">★프린터 보상매입 이벤트★</h2>
+          <p class="text-sm text-gray-500">2025.04.27~2055.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=2" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event2.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">기프티콘이 쏟아진다!!</h2>
+          <p class="text-sm text-gray-500">2018.04.27~2018.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=3" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event3.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">사업번창기원 명함증정 이벤트</h2>
+          <p class="text-sm text-gray-500">2018.04.25~2018.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=4" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event4.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">당일 야간설치 및 당일 A/S 서비스</h2>
+          <p class="text-sm text-gray-500">2018.04.23~2018.12.31</p>
+        </div>
+      </a>
+    <a href="event-detail.html?id=5" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event5.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-white text-gray-600 text-sm px-2 py-1 rounded">캠페인</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">★프린터 보상매입 이벤트★</h2>
+          <p class="text-sm text-gray-500">2018.04.27~2018.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=6" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event6.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">기프티콘이 쏟아진다!!</h2>
+          <p class="text-sm text-gray-500">2018.04.27~2018.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=7" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event7.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">사업번창기원 명함증정 이벤트</h2>
+          <p class="text-sm text-gray-500">2018.04.25~2018.12.31</p>
+        </div>
+      </a>
+      <a href="event-detail.html?id=8" class="card" data-status="ended" data-page="1">
+        <div class="relative"><img src="images/event8.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">당일 야간설치 및 당일 A/S 서비스</h2>
+          <p class="text-sm text-gray-500">2018.04.23~2018.12.31</p>
+        </div>
+      </a>
+      <!-- 예시: 2페이지 전용 카드 (페이지 네비게이션 테스트용) -->
+      <a href="event-detail.html?id=9" class="card" data-status="ended" data-page="2">
+        <div class="relative"><img src="images/event9.jpg" alt="" class="w-full h-40 object-cover">
+          <span class="absolute top-2 right-2 bg-blue-600 text-white text-sm px-2 py-1 rounded">이벤트</span>
+        </div>
+        <div class="p-4 text-center">
+          <h2 class="text-lg font-semibold">예시 2페이지 이벤트</h2>
+          <p class="text-sm text-gray-500">2018.05.01~2018.12.31</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- 페이징 -->
+    <div class="flex justify-center mt-10">
+      <nav class="inline-flex -space-x-px">
+        <button class="px-3 py-1 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100" data-page="1">1</button>
+        <button class="px-3 py-1 bg-white border border-gray-300 text-gray-500 hover:bg-gray-100" data-page="2">2</button>
+      </nav>
+    </div>
+  </main>
+
+  <!-- (기존) Footer 삽입 -->
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const cards = document.querySelectorAll('.card');
+    const pageButtons = document.querySelectorAll('[data-page]');
+    let currentTab = 'all';
+    let currentPage = 1;
+
+    function updateCounts() {
+      const counts = { all:0, ongoing:0, ended:0 };
+      cards.forEach(c => {
+        counts.all++;
+        counts[c.dataset.status]++;
+      });
+      document.getElementById('count-all').textContent = counts.all;
+      document.getElementById('count-ongoing').textContent = counts.ongoing;
+      document.getElementById('count-ended').textContent = counts.ended;
+    }
+
+    function render() {
+      cards.forEach(card => {
+        const matchTab = (currentTab === 'all' || card.dataset.status === currentTab);
+        const matchPage = parseInt(card.dataset.page) === currentPage;
+        card.style.display = (matchTab && matchPage) ? 'block' : 'none';
+      });
+      // 탭 스타일 업데이트
+      tabs.forEach(btn => {
+        if (btn.dataset.tab === currentTab) {
+          btn.classList.add('text-blue-600', 'border-blue-600');
+          btn.classList.remove('text-gray-500');
+        } else {
+          btn.classList.add('text-gray-500');
+          btn.classList.remove('text-blue-600', 'border-blue-600');
+        }
+      });
+      // 페이징 버튼 강조
+      pageButtons.forEach(btn => {
+        if (parseInt(btn.dataset.page) === currentPage) {
+          btn.classList.add('text-blue-600');
+        } else {
+          btn.classList.remove('text-blue-600');
+        }
+      });
+    }
+
+    // 이벤트 바인딩
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentTab = btn.dataset.tab;
+        render();
+      });
+    });
+    pageButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentPage = parseInt(btn.dataset.page);
+        render();
+      });
+    });
+
+    // 초기 세팅
+    updateCounts();
+    render();
+  </script>
+</body>
+</html>

@@ -1,3 +1,116 @@
+<<<<<<< HEAD
+/* style.css */
+:root {
+  /* 컬러 팔레트 변수화 */
+  --color-primary: #1D4ED8;    /* .text-blue-700 */
+  --font-base: 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 18px;      /* html font-size 18px 기준 */
+  --color-secondary: #6366F1; /* 30% 보조 퍼플 */  
+  --color-accent: #FF6B6B;    /* 10% 강조 코랄 */  
+  --color-bg: #F9FAFB;        /* 배경 라이트 그레이 */  
+  --color-text: #1F2937;      /* 다크 그레이 텍스트 */  
+
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+}
+
+/* 타이포그래피 */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* 링크 및 강조 텍스트 컬러 */
+.text-blue-700,
+a,
+button {
+  color: var(--color-primary);
+}
+
+/* 네비게이션 드롭다운 */
+ul.absolute {
+  margin-top: 0.25rem;    /* Tailwind mt-1 */
+  padding: 0.25rem 0;     /* 위아래 padding */
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0.375rem;
+}
+
+/* 베너 스크롤 텍스트 */
+@keyframes scroll-text {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
+#fixed-banner {
+  /* inline style → 스타일시트로 이동 */
+  position: fixed;
+  top: 1rem;    /* 16px */
+  right: 1rem;
+  width: 18rem; /* 288px */
+  height: 3rem; /* 48px */
+  background: linear-gradient(90deg, var(--color-primary), #6366f1);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#banner-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 600;
+  animation: scroll-text 15s linear infinite;
+}
+
+/* 사이드바 링크 */
+#fixed-sidebar {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  z-index: 10000;
+}
+
+#fixed-sidebar a {
+  display: block;
+  width: 5rem; /* 80px */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#fixed-sidebar a img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+#fixed-sidebar a:hover {
+  transform: translateX(-0.25rem) scale(1.05);
+  opacity: 0.9;
+}
+=======
 /* style.css */
 
 body {
@@ -28,3 +141,4 @@ img.product-image {
   height: auto;
   display: block; /* 여백 제거용 */
 }
+>>>>>>> c1e4a81c9a0fe37b98fe51239b1a0795d5082c4f
