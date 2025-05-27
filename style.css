@@ -1,0 +1,25 @@
+/* style.css */
+
+body {
+  scroll-behavior: smooth;
+  /* background-color: yellow;  <-- 이 줄 삭제 또는 주석 처리 */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #1f2937; /* 기본 텍스트 다크그레이 */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+.text-blue-700 {
+  color: #1D4ED8;
+}
+ul.absolute {
+  margin-top: 0.25rem; /* mt-1로 줄임 (원래 mt-2는 0.5rem) */
+  /* 필요 시 padding 추가로 영역 확보 */
+}
+html {
+    font-size: 18px; /* 기본값은 16px → 크게 조정 */
+}
